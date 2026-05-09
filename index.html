@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="A brotherhood of dads building wealth through the markets — and passing it down. Discipline. Conviction. Strategy. Freedom." />
+<title>DADZ WHO TRADE — Help others win. You win too.</title>
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --color-bg: #f1ede4;
+    --color-text: #0c1410;
+    --color-accent: #0F6F3E;
+    --color-inverse-bg: #0c1410;
+    --color-inverse-text: #f1ede4;
+    --color-muted: #6b6f6c;
+    --color-border: rgba(12, 20, 16, 0.15);
+
+    --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+
+    --container-max: 1280px;
+    --container-px: clamp(24px, 4vw, 60px);
+    --section-py: clamp(80px, 8vw, 140px);
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 0.3s;
+    --dur-med: 0.6s;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  img, video, svg { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { background: none; border: 0; color: inherit; font: inherit; cursor: pointer; }
+  ul { list-style: none; }
+  ::selection { background: var(--color-accent); color: var(--color-bg); }
+
+  .container {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+  }
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+    font-weight: 500;
+  }
+  .accent { color: var(--color-accent); }
+
+  /* NOISE */
+  .noise {
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+  }
+
+  /* HEADER */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px var(--container-px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color var(--dur-fast) ease, padding var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+    color: var(--color-inverse-text);
+    border-bottom: 1px solid transparent;
+  }
+  .header.is-scrolled {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-block: 12px;
+    border-bottom-color: var(--color-border);
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo .icon {
+    width: 36px;
+    height: 36px;
+    transition: width var(--dur-fast) ease;
+  }
+  .header-logo .wordmark {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: font-size var(--dur-fast) ease;
+  }
+  .header-logo .wordmark .accent {
+    color: var(--color-accent);
+  }
+  .header.is-scrolled .header-logo .icon { width: 30px; height: 30px; }
+  .header.is-scrolled .header-logo .wordmark { font-size: 17px; }
+
+  .nav-links {
+    display: none;
+    gap: 28px;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    position: relative;
+    padding-block: 4px;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--dur-med) var(--ease-out);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+  @media (min-width: 1024px) { .nav-links { display: flex; } }
+
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .menu-toggle {
+    width: 44px; height: 44px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-end;
+    gap: 6px;
+    margin-right: -10px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 26px; height: 1.5px;
+    background: currentColor;
+    transition: width var(--dur-fast) ease;
+  }
+  .menu-toggle span:last-child { width: 16px; }
+  .menu-toggle:hover span:last-child { width: 26px; }
+
+  /* OVERLAY MENU */
+  .overlay-menu {
+    position: fixed; inset: 0;
+    z-index: 200;
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    transform: translateY(-100%);
+    transition: transform 0.7s var(--ease-out);
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .overlay-menu.is-open { transform: translateY(0); }
+  .overlay-head {
+    padding: 18px var(--container-px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .overlay-close {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    margin-right: -10px;
+  }
+  .overlay-close::before {
+    content: "×";
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .overlay-body {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 60px var(--container-px) 40px;
+    gap: 6px;
+  }
+  .overlay-body a {
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.6s var(--ease-out), opacity 0.6s var(--ease-out);
+    padding-block: 4px;
+  }
+  .overlay-body a:hover { font-style: italic; color: var(--color-accent); }
+  .overlay-menu.is-open .overlay-body a { transform: translateY(0); opacity: 1; }
+  .overlay-menu.is-open .overlay-body a:nth-child(1) { transition-delay: 0.20s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(2) { transition-delay: 0.27s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(3) { transition-delay: 0.34s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(4) { transition-delay: 0.41s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(5) { transition-delay: 0.48s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(6) { transition-delay: 0.55s; }
+  .overlay-menu.is-open .overlay-body a:nth-child(7) { transition-delay: 0.62s; }
+
+  .overlay-foot {
+    padding: 28px var(--container-px);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid rgba(241, 237, 228, 0.15);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(241, 237, 228, 0.6);
+  }
+  .overlay-foot .socials { display: flex; gap: 24px; }
+  .overlay-foot .socials a:hover { color: var(--color-inverse-text); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 620px;
+    background: #0c1410;
+    color: var(--color-inverse-text);
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    z-index: 0;
+    filter: contrast(1.05) saturate(1.05);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(12,20,16,0.65) 0%, rgba(12,20,16,0.15) 30%, rgba(12,20,16,0.05) 50%, rgba(12,20,16,0.85) 100%),
+      linear-gradient(95deg, rgba(12,20,16,0.55) 0%, rgba(12,20,16,0.15) 45%, transparent 75%);
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 110px var(--container-px) 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: var(--container-max);
+    margin-inline: auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(241,237,228,0.85);
+    align-self: flex-start;
+  }
+  .hero-eyebrow .pulse {
+    width: 8px; height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(15, 111, 62, 0.6);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(15, 111, 62, 0.7); }
+    70%  { box-shadow: 0 0 0 14px rgba(15, 111, 62, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(15, 111, 62, 0); }
+  }
+  .hero-headline {
+    max-width: 920px;
+  }
+  .hero-headline h1 {
+    font-size: clamp(40px, 7vw, 104px);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .hero-headline h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(241, 237, 228, 0.7);
+  }
+  .hero-foot .pillars {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .hero-foot .pillars span { position: relative; }
+  .hero-foot .pillars span:not(:last-child)::after {
+    content: "•";
+    margin-left: 18px;
+    color: var(--color-accent);
+  }
+
+  /* CASE HERO CAROUSEL */
+  .case-hero {
+    padding: clamp(60px, 8vw, 120px) var(--container-px);
+    background: var(--color-bg);
+    position: relative;
+  }
+  .case-hero-inner { max-width: var(--container-max); margin-inline: auto; position: relative; }
+  .case-hero-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+  @media (max-width: 768px) {
+    .case-hero-stage { aspect-ratio: 4 / 5; }
+  }
+  .case-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 1s var(--ease-out), transform 6s var(--ease-out);
+    overflow: hidden;
+  }
+  .case-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .case-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .case-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(12,20,16,0) 30%, rgba(12,20,16,0.85) 100%),
+      linear-gradient(95deg, rgba(12,20,16,0.4) 0%, transparent 50%);
+  }
+  .case-slide-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: clamp(20px, 4vw, 56px);
+    color: var(--color-inverse-text);
+    z-index: 2;
+  }
+  .case-slide-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(241,237,228,0.75);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .case-slide-eyebrow::before {
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--color-accent);
+  }
+  .case-slide-title {
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .case-slide-desc {
+    font-size: clamp(14px, 1.2vw, 18px);
+    max-width: 560px;
+    color: rgba(241,237,228,0.88);
+    line-height: 1.5;
+  }
+  .case-counter {
+    position: absolute;
+    bottom: clamp(20px, 4vw, 56px);
+    right: clamp(20px, 4vw, 56px);
+    color: var(--color-inverse-text);
+    z-index: 3;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    font-variant-numeric: tabular-nums;
+  }
+  .case-dots { display: flex; gap: 8px; margin-left: 8px; }
+  .case-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(241,237,228,0.35);
+    transition: background var(--dur-fast) ease, transform var(--dur-fast) ease;
+  }
+  .case-dot.is-active { background: var(--color-accent); transform: scale(1.4); }
+
+  /* PILLARS (was Engagements) */
+  .pillars-section { padding-block: var(--section-py); position: relative; }
+  .pillars-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-inline: var(--container-px);
+    max-width: var(--container-max);
+    margin: 0 auto 48px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .pillars-head h2 {
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+    text-transform: uppercase;
+    max-width: 720px;
+  }
+  .pillars-head h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+  .pillars-head p {
+    max-width: 360px;
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.55;
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+  }
+  @media (max-width: 1023px) { .carousel-container { cursor: grab; } }
+  .carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 0 var(--container-px) 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track.is-dragging { scroll-snap-type: none; }
+
+  .pillar-card {
+    flex: 0 0 auto;
+    width: clamp(280px, 36vw, 480px);
+    scroll-snap-align: start;
+    pointer-events: auto;
+  }
+  .pillar-media {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--color-inverse-bg);
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .pillar-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+  }
+  .pillar-card:hover .pillar-media img { transform: scale(1.04); }
+  .pillar-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12,20,16,0.05) 0%, rgba(12,20,16,0.55) 100%);
+    pointer-events: none;
+  }
+  .pillar-num {
+    position: absolute;
+    top: 16px; left: 18px;
+    z-index: 2;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(241,237,228,0.85);
+    font-variant-numeric: tabular-nums;
+  }
+  .pillar-num strong {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+  .pillar-overlay-title {
+    position: absolute;
+    bottom: 18px; left: 18px; right: 18px;
+    z-index: 2;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-inverse-text);
+  }
+  .pillar-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .pillar-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text);
+    max-width: 92%;
+  }
+
+  /* solid pillar card (for icon-based one) */
+  .pillar-card--solid .pillar-media {
+    background: var(--color-inverse-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12% 18%;
+  }
+  .pillar-card--solid .pillar-media::after { display: none; }
+  .pillar-card--solid .pillar-media img {
+    object-fit: contain;
+    transition: transform 0.8s var(--ease-out), filter 0.8s var(--ease-out);
+  }
+  .pillar-card--solid:hover .pillar-media img { transform: scale(1.06) rotate(2deg); }
+
+  /* Custom cursor */
+  .drag-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 10px 22px;
+    border-radius: 9999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s var(--ease-out);
+    z-index: 1000;
+    will-change: transform;
+  }
+  .drag-cursor.is-active { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .drag-cursor.is-dragging { transform: translate(-50%, -50%) scale(0.85); }
+
+  /* MARQUEE */
+  .marquee {
+    border-block: 1px solid var(--color-border);
+    overflow: hidden;
+    padding-block: 22px;
+    background: var(--color-bg);
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
+  .marquee-track em { font-style: italic; font-weight: 400; color: var(--color-accent); }
+  .marquee-dot {
+    width: 6px; height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ABOUT */
+  .about { padding-block: var(--section-py); }
+  .about-grid {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  @media (min-width: 768px) {
+    .about-grid { grid-template-columns: 1fr 2fr; gap: 80px; }
+  }
+  .about-eyebrow { padding-top: 6px; }
+  .about-body p {
+    font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.35;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    margin-bottom: 32px;
+  }
+  .about-body p em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-text);
+    padding-bottom: 4px;
+    transition: gap var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  }
+  .about-link:hover { gap: 16px; color: var(--color-accent); border-color: var(--color-accent); }
+
+  /* DISPATCHES (news) */
+  .news { padding-block: var(--section-py); border-top: 1px solid var(--color-border); }
+  .news-head {
+    max-width: var(--container-max);
+    margin: 0 auto 48px;
+    padding-inline: var(--container-px);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .news-head h2 {
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .news-head a {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+  .news-list {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-inline: var(--container-px);
+  }
+  .news-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: clamp(16px, 2.5vw, 28px) 0;
+    border-top: 1px solid var(--color-border);
+    transition: padding-left var(--dur-med) var(--ease-out), color var(--dur-fast) ease;
+    cursor: pointer;
+  }
+  .news-item:last-child { border-bottom: 1px solid var(--color-border); }
+  .news-item:hover { padding-left: 12px; color: var(--color-accent); }
+  .news-item:hover .tag { background: var(--color-accent); color: var(--color-bg); border-color: var(--color-accent); }
+  .news-title {
+    font-size: clamp(15px, 1.4vw, 20px);
+    font-weight: 500;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    padding-right: 24px;
+  }
+  .news-meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .news-meta .tag {
+    border: 1px solid var(--color-border);
+    padding: 4px 10px;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: background var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+  }
+
+  /* CTA banner before footer */
+  .cta {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding: clamp(60px, 8vw, 120px) var(--container-px);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .cta-inner {
+      grid-template-columns: 2fr 1fr;
+      align-items: end;
+    }
+  }
+  .cta h2 {
+    font-size: clamp(36px, 5.5vw, 80px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .cta h2 em { font-style: italic; font-weight: 400; color: var(--color-accent); }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 18px 28px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    transition: background var(--dur-fast) ease, gap var(--dur-fast) ease;
+    align-self: start;
+    justify-self: end;
+  }
+  .cta-btn:hover { gap: 22px; background: var(--color-bg); color: var(--color-text); }
+  .cta-icon-watermark {
+    position: absolute;
+    right: -3vw;
+    bottom: -8vw;
+    width: 38vw;
+    max-width: 540px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: clamp(40px, 5vw, 64px);
+  }
+  .footer-grid {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .footer-logo-wrap img.icon {
+    width: 64px; height: 64px;
+  }
+  .footer-logo-wrap .wordmark {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .footer-logo-wrap .wordmark .accent { color: var(--color-accent); }
+  .footer-tagline {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-muted);
+    margin-top: 6px;
+    display: block;
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  @media (min-width: 768px) {
+    .footer-cols { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    color: var(--color-muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+  }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted);
+  }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+  .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.2s; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.3s; }
+  .reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+  .reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.4s; }
+  .reveal-stagger.is-visible > *:nth-child(9) { transition-delay: 0.45s; }
+  .reveal-stagger.is-visible > *:nth-child(10) { transition-delay: 0.5s; }
+
+  .page-load .header,
+  .page-load .hero-inner > * { opacity: 0; transform: translateY(20px); }
+  .page-loaded .header { animation: fadeUp 0.8s var(--ease-out) 0.1s forwards; }
+  .page-loaded .hero-eyebrow { animation: fadeUp 0.8s var(--ease-out) 0.4s forwards; }
+  .page-loaded .hero-headline { animation: fadeUp 0.8s var(--ease-out) 0.55s forwards; }
+  .page-loaded .hero-foot { animation: fadeUp 0.8s var(--ease-out) 0.7s forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (hover: none) {
+    .drag-cursor { display: none; }
+    .carousel-container { cursor: grab; }
+  }
+  body.menu-open { overflow: hidden; }
+</style>
+</head>
+<body class="page-load">
+
+<!-- NOISE -->
+<svg style="position:absolute;width:0;height:0;" aria-hidden="true">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+  </filter>
+</svg>
+<svg class="noise" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+</svg>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="#" class="header-logo" aria-label="DADZ WHO TRADE">
+    <img class="icon" src="assets/icon.png" alt="" />
+    <span class="wordmark">Dadz Who <span class="accent">Trade</span></span>
+  </a>
+
+  <div class="nav-right">
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#pillars">Pillars</a>
+      <a href="#about">About</a>
+      <a href="#dispatches">Dispatches</a>
+      <a href="#community">Community</a>
+      <a href="#join">Join</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- OVERLAY MENU -->
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Main menu">
+  <div class="overlay-head">
+    <a href="#" class="header-logo" aria-label="DADZ WHO TRADE">
+      <img class="icon" src="assets/icon.png" alt="" style="filter: brightness(1.1);" />
+      <span class="wordmark" style="color: var(--color-inverse-text);">Dadz Who <span class="accent">Trade</span></span>
+    </a>
+    <button class="overlay-close" id="overlayClose" aria-label="Close menu"></button>
+  </div>
+  <nav class="overlay-body" aria-label="Overlay">
+    <a href="#pillars">Pillars</a>
+    <a href="#about">About</a>
+    <a href="#dispatches">Dispatches</a>
+    <a href="#community">Community</a>
+    <a href="#join">Join</a>
+    <a href="#contact">Contact</a>
+    <a href="#brotherhood">The Brotherhood</a>
+  </nav>
+  <div class="overlay-foot">
+    <div>Discipline · Conviction · Strategy · Freedom</div>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">X</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero-img" src="assets/hero-family.jpg" alt="A father walks home with his family at sunset" />
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="pulse"></span>
+      <span>A Brotherhood of Dads · Est. 2026</span>
+    </div>
+
+    <div class="hero-headline">
+      <h1>Trade like a man.<br/>Live like a <em>dad.</em></h1>
+    </div>
+
+    <div class="hero-foot">
+      <div class="pillars">
+        <span>Discipline</span>
+        <span>Conviction</span>
+        <span>Strategy</span>
+        <span>Freedom</span>
+      </div>
+      <div>Help others win. <em style="color: var(--color-accent); font-style: normal;">You win too.</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE HERO CAROUSEL -->
+<section class="case-hero" aria-label="Featured stories">
+  <div class="case-hero-inner reveal">
+    <div class="case-hero-stage" id="caseStage">
+      <article class="case-slide is-active" data-i="0">
+        <img src="assets/hero-compass.jpg" alt="Men gathered around a compass on the floor of a luxury trading floor" loading="eager" />
+        <div class="case-slide-content">
+          <div class="case-slide-eyebrow">Pillar 01 — Conviction</div>
+          <h3 class="case-slide-title">True north,<br/>every trade.</h3>
+          <p class="case-slide-desc">Discipline. Conviction. Strategy. Freedom. The four pillars every dad inside the room lives by — and what we hold each other accountable to.</p>
+        </div>
+      </article>
+      <article class="case-slide" data-i="1">
+        <img src="assets/hero-boardroom.jpg" alt="A small group of men around a table at sunset reviewing trading charts" loading="lazy" />
+        <div class="case-slide-content">
+          <div class="case-slide-eyebrow">Pillar 02 — Brotherhood</div>
+          <h3 class="case-slide-title">A small room.<br/>Real men.</h3>
+          <p class="case-slide-desc">No gurus. No noise. Just a tight circle of fathers building wealth in the markets — sharing the playbook in real time so nobody trades alone.</p>
+        </div>
+      </article>
+      <article class="case-slide" data-i="2">
+        <img src="assets/hero-family.jpg" alt="A father walks home to his family at sunset, charts visible inside" loading="lazy" />
+        <div class="case-slide-content">
+          <div class="case-slide-eyebrow">Pillar 03 — Freedom</div>
+          <h3 class="case-slide-title">The point<br/>is the family.</h3>
+          <p class="case-slide-desc">Charts close at 4. Bath time at 7. The market is the vehicle — your kids, your wife, your time, are the destination.</p>
+        </div>
+      </article>
+
+      <div class="case-counter">
+        <span id="caseCurrent">01</span><span>/</span><span id="caseTotal">03</span>
+        <div class="case-dots" id="caseDots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="pillars" aria-labelledby="pillars-title">
+  <div class="pillars-head reveal">
+    <h2 id="pillars-title">The four <em>pillars.</em></h2>
+    <p>Every dad inside the room signs up to live them. They're the only thing we don't compromise on.</p>
+  </div>
+
+  <div class="carousel-container" id="carouselContainer">
+    <div class="carousel-track reveal-stagger" id="carouselTrack">
+
+      <article class="pillar-card">
+        <div class="pillar-media">
+          <img src="assets/hero-boardroom.jpg" alt="Discipline" loading="lazy" />
+          <div class="pillar-num"><strong>01</strong> / 04</div>
+          <div class="pillar-overlay-title">Discipline</div>
+        </div>
+        <div class="pillar-name">Discipline</div>
+        <p class="pillar-desc">A plan, written down. A risk number you don't move. Show up on green days and red days the same.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-media">
+          <img src="assets/hero-compass.jpg" alt="Conviction" loading="lazy" />
+          <div class="pillar-num"><strong>02</strong> / 04</div>
+          <div class="pillar-overlay-title">Conviction</div>
+        </div>
+        <div class="pillar-name">Conviction</div>
+        <p class="pillar-desc">Take the trade you actually believe in. Size up when you're right. Get out cleanly when you're wrong.</p>
+      </article>
+
+      <article class="pillar-card pillar-card--solid">
+        <div class="pillar-media">
+          <img src="assets/icon.png" alt="Strategy" loading="lazy" />
+          <div class="pillar-num"><strong>03</strong> / 04</div>
+          <div class="pillar-overlay-title">Strategy</div>
+        </div>
+        <div class="pillar-name">Strategy</div>
+        <p class="pillar-desc">A repeatable edge — not a hot take. The room shares setups, journals trades, and tears each other's thesis apart on purpose.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-media">
+          <img src="assets/hero-family.jpg" alt="Freedom" loading="lazy" />
+          <div class="pillar-num"><strong>04</strong> / 04</div>
+          <div class="pillar-overlay-title">Freedom</div>
+        </div>
+        <div class="pillar-name">Freedom</div>
+        <p class="pillar-desc">Not yacht-life freedom. Real freedom — being there for the bus stop, the coach's huddle, the random Tuesday afternoon.</p>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="drag-cursor" id="dragCursor">Drag</div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>DADZ WHO TRADE® <i class="marquee-dot"></i> Discipline · Conviction · Strategy · Freedom <i class="marquee-dot"></i> <em>Help others win. You win too.</em> <i class="marquee-dot"></i></span>
+    <span>DADZ WHO TRADE® <i class="marquee-dot"></i> Discipline · Conviction · Strategy · Freedom <i class="marquee-dot"></i> <em>Help others win. You win too.</em> <i class="marquee-dot"></i></span>
+    <span>DADZ WHO TRADE® <i class="marquee-dot"></i> Discipline · Conviction · Strategy · Freedom <i class="marquee-dot"></i> <em>Help others win. You win too.</em> <i class="marquee-dot"></i></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid reveal">
+    <div class="about-eyebrow eyebrow">About Us</div>
+    <div class="about-body">
+      <p>DADZ WHO TRADE is a brotherhood of fathers building wealth through the markets — and passing it down. We don't sell signals. We don't sell hype. We share the playbook, hold each other accountable, and keep the <em>main thing</em> the main thing: our families.</p>
+      <a href="#join" class="about-link">Join the Room <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- DISPATCHES -->
+<section class="news" id="dispatches">
+  <div class="news-head reveal">
+    <h2>Dispatches</h2>
+    <a href="#">View All</a>
+  </div>
+  <div class="news-list reveal-stagger">
+    <a class="news-item" href="#">
+      <div class="news-title">The Risk Number You Should Have Written Down by Sunday</div>
+      <div class="news-meta"><span class="tag">Discipline</span><time>5.06.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Why Most Dads Blow Up: It's Not the Setup, It's the Sizing</div>
+      <div class="news-meta"><span class="tag">Strategy</span><time>4.29.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Conviction vs. Hope — How to Tell the Difference Mid-Trade</div>
+      <div class="news-meta"><span class="tag">Conviction</span><time>4.21.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Closing the Laptop at 4: Building a Trading Day That Doesn't Eat the Family</div>
+      <div class="news-meta"><span class="tag">Freedom</span><time>4.14.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Inside the Room: How a Dozen Dads Held Each Other Through Tariff Week</div>
+      <div class="news-meta"><span class="tag">Brotherhood</span><time>4.07.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">The Journal Page That Saved Me $14k in March</div>
+      <div class="news-meta"><span class="tag">Discipline</span><time>3.31.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Teaching My Son to Read a Chart Before He Could Read a Book</div>
+      <div class="news-meta"><span class="tag">Legacy</span><time>3.24.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Position Sizing for Dads with a Day Job</div>
+      <div class="news-meta"><span class="tag">Strategy</span><time>3.17.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">Why We Tear Each Other's Thesis Apart on Purpose</div>
+      <div class="news-meta"><span class="tag">Brotherhood</span><time>3.10.26</time></div>
+    </a>
+    <a class="news-item" href="#">
+      <div class="news-title">The Compass Test: A 90-Second Pre-Trade Check Every Dad Should Run</div>
+      <div class="news-meta"><span class="tag">Conviction</span><time>3.03.26</time></div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="join">
+  <img class="cta-icon-watermark" src="assets/icon.png" alt="" aria-hidden="true" />
+  <div class="cta-inner">
+    <h2>Become a <em>dad</em><br/>who trades.</h2>
+    <a href="#" class="cta-btn">Apply to the Room <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div class="reveal">
+      <div class="footer-logo-wrap">
+        <img class="icon" src="assets/icon.png" alt="" />
+        <div>
+          <div class="wordmark">Dadz Who <span class="accent">Trade</span></div>
+          <span class="footer-tagline">Help others win. You win too.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-cols reveal-stagger">
+      <div class="footer-col">
+        <h4>The Room</h4>
+        <ul>
+          <li><a href="#pillars">The Pillars</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#dispatches">Dispatches</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@dadzwhotrade.com">hello@dadzwhotrade.com</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Speaking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pillars</h4>
+        <ul>
+          <li>Discipline</li>
+          <li>Conviction</li>
+          <li>Strategy</li>
+          <li>Freedom</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">X</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>©26 DADZ WHO TRADE®</div>
+      <div>A brotherhood of fathers · The room is small on purpose</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    document.body.classList.remove('page-load');
+    document.body.classList.add('page-loaded');
+  });
+
+  /* HEADER SCROLL */
+  const header = document.getElementById('header');
+  const hero = document.getElementById('hero');
+  const onScroll = () => {
+    if (window.scrollY > 60) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* OVERLAY */
+  const menuToggle = document.getElementById('menuToggle');
+  const overlayMenu = document.getElementById('overlayMenu');
+  const overlayClose = document.getElementById('overlayClose');
+  const openMenu = () => {
+    overlayMenu.classList.add('is-open');
+    document.body.classList.add('menu-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+  };
+  const closeMenu = () => {
+    overlayMenu.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  };
+  menuToggle.addEventListener('click', openMenu);
+  overlayClose.addEventListener('click', closeMenu);
+  overlayMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  /* CASE CAROUSEL */
+  (() => {
+    const slides = document.querySelectorAll('.case-slide');
+    const dotsHost = document.getElementById('caseDots');
+    const current = document.getElementById('caseCurrent');
+    const total = document.getElementById('caseTotal');
+    if (!slides.length) return;
+
+    total.textContent = String(slides.length).padStart(2, '0');
+    let i = 0;
+    let timer;
+
+    const dots = Array.from(slides).map((_, idx) => {
+      const d = document.createElement('button');
+      d.className = 'case-dot';
+      d.setAttribute('aria-label', `Slide ${idx + 1}`);
+      d.addEventListener('click', () => go(idx, true));
+      dotsHost.appendChild(d);
+      return d;
+    });
+
+    const go = (idx, manual = false) => {
+      slides[i].classList.remove('is-active');
+      dots[i].classList.remove('is-active');
+      i = (idx + slides.length) % slides.length;
+      slides[i].classList.add('is-active');
+      dots[i].classList.add('is-active');
+      current.textContent = String(i + 1).padStart(2, '0');
+      if (manual) restart();
+    };
+    dots[0].classList.add('is-active');
+    const start = () => { timer = setInterval(() => go(i + 1), 5000); };
+    const restart = () => { clearInterval(timer); start(); };
+    start();
+  })();
+
+  /* DRAG CAROUSEL */
+  (() => {
+    const track = document.getElementById('carouselTrack');
+    const container = document.getElementById('carouselContainer');
+    const cursor = document.getElementById('dragCursor');
+    if (!track || !container) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      moved = false;
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+      track.classList.add('is-dragging');
+      cursor.classList.add('is-dragging');
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove('is-dragging');
+      cursor.classList.remove('is-dragging');
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const dx = e.pageX - startX;
+      track.scrollLeft = startScroll - dx * 1.4;
+      if (Math.abs(dx) > 5) moved = true;
+    });
+    track.addEventListener('click', (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+
+    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isFinePointer) return;
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let raf;
+
+    const tick = () => {
+      cursorX += (mouseX - cursorX) * 0.18;
+      cursorY += (mouseY - cursorY) * 0.18;
+      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%) ${cursor.classList.contains('is-dragging') ? 'scale(0.85)' : 'scale(1)'}`;
+      raf = requestAnimationFrame(tick);
+    };
+
+    container.addEventListener('mouseenter', () => {
+      cursor.classList.add('is-active');
+      if (!raf) tick();
+    });
+    container.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-active');
+      cursor.classList.remove('is-dragging');
+    });
+    container.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+  })();
+
+  /* REVEAL */
+  (() => {
+    const opts = { threshold: 0.15, rootMargin: '0px 0px -10% 0px' };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, opts);
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
