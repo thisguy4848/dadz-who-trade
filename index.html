@@ -1207,12 +1207,22 @@
   /* Sections that host dotgrids must lift their content above z:0 */
   .pillars-section,
   .about,
-  .cta {
+  .cta,
+  .code-section,
+  .playbook,
+  .arena,
+  .funded,
+  .guides {
     position: relative;
   }
   .pillars-section > *:not(.dotgrid),
   .about > *:not(.dotgrid),
-  .cta > *:not(.dotgrid) {
+  .cta > *:not(.dotgrid),
+  .code-section > *:not(.dotgrid),
+  .playbook > *:not(.dotgrid),
+  .arena > *:not(.dotgrid),
+  .funded > *:not(.dotgrid),
+  .guides > *:not(.dotgrid) {
     position: relative;
     z-index: 1;
   }
@@ -2146,6 +2156,7 @@
 
 <!-- BROTHERHOOD CODE -->
 <section class="code-section" id="code">
+  <div class="dotgrid" data-bg="dark" aria-hidden="true"><canvas></canvas></div>
   <div class="code-inner">
     <div class="code-head reveal">
       <div class="eyebrow">The Brotherhood Code</div>
@@ -2185,6 +2196,7 @@
 
 <!-- TRADING ARENA -->
 <section class="arena" id="arena">
+  <div class="dotgrid" data-bg="dark" aria-hidden="true"><canvas></canvas></div>
   <div class="arena-inner">
     <div class="arena-head reveal">
       <div class="eyebrow">The Trading Arena</div>
@@ -2203,6 +2215,7 @@
 
 <!-- FUNDED ACCOUNT PATH -->
 <section class="funded">
+  <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="funded-inner">
     <div class="funded-content reveal">
       <div class="eyebrow" style="color: rgba(255,255,255,0.5);">Funded Account Path</div>
@@ -2223,6 +2236,7 @@
 
 <!-- TEAM / GUIDES -->
 <section class="guides" id="guides">
+  <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="guides-head reveal">
     <div class="eyebrow">Your Guides</div>
     <h2>Two dads.<br/>One <em>standard</em>.</h2>
