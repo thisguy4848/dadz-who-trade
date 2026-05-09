@@ -926,6 +926,43 @@
   }
   body.menu-open { overflow: hidden; }
 
+  /* ============== REACTIVE DOT GRID ============== */
+  .dotgrid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .dotgrid canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  /* Sections that host dotgrids must lift their content above z:0 */
+  .pillars-section,
+  .about,
+  .cta {
+    position: relative;
+  }
+  .pillars-section > *:not(.dotgrid),
+  .about > *:not(.dotgrid),
+  .cta > *:not(.dotgrid) {
+    position: relative;
+    z-index: 1;
+  }
+  /* Allow drag carousel + cursor to receive events */
+  .pillars-section .carousel-container,
+  .pillars-section .drag-cursor {
+    z-index: 2;
+  }
+  /* The dot grid in the CTA section sits behind the watermark icon */
+  .cta .cta-icon-watermark { z-index: 0; }
+
   /* ============== MOBILE TIGHTENING ============== */
   @media (max-width: 640px) {
     :root {
@@ -1143,6 +1180,7 @@
 
 <!-- PILLARS -->
 <section class="pillars-section" id="pillars" aria-labelledby="pillars-title">
+  <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="pillars-head reveal">
     <h2 id="pillars-title">The four <em>pillars.</em></h2>
     <p>Every dad inside the room signs up to live them. They're the only thing we don't compromise on.</p>
@@ -1208,6 +1246,7 @@
 
 <!-- ABOUT -->
 <section class="about" id="about">
+  <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="about-grid reveal">
     <div class="about-eyebrow eyebrow">About Us</div>
     <div class="about-body">
@@ -1269,6 +1308,7 @@
 
 <!-- CTA -->
 <section class="cta" id="join">
+  <div class="dotgrid" data-bg="dark" aria-hidden="true"><canvas></canvas></div>
   <img class="cta-icon-watermark" src="assets/icon.png" alt="" aria-hidden="true" />
   <div class="cta-inner">
     <h2>Become a <em>dad</em><br/>who trades.</h2>
@@ -1482,6 +1522,168 @@
       });
     }, opts);
     document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+  })();
+
+  /* REACTIVE DOT GRID */
+  (() => {
+    const grids = document.querySelectorAll('.dotgrid');
+    if (!grids.length) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    const palettes = {
+      light: { base: [200, 206, 212], accent: [20, 90, 61] },
+      dark:  { base: [80, 92, 92],    accent: [56, 192, 124] },
+    };
+
+    class DotGrid {
+      constructor(host) {
+        this.host = host;
+        this.section = host.parentElement;
+        this.canvas = host.querySelector('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.dpr = Math.min(2, window.devicePixelRatio || 1);
+        const palette = palettes[host.dataset.bg] || palettes.light;
+        this.base = palette.base;
+        this.accent = palette.accent;
+
+        this.gridSize = 28;
+        this.dotRadius = 1.8;
+        this.pullRadius = 150;
+        this.maxOffset = 18;
+        this.maxScale = 3.5;
+        this.dots = [];
+        this.mouseX = -9999;
+        this.mouseY = -9999;
+        this.targetX = -9999;
+        this.targetY = -9999;
+        this.frame = null;
+        this.visible = false;
+
+        this.tick = this.tick.bind(this);
+        this.resize();
+        this.bind();
+
+        if (reduceMotion || !isFinePointer) {
+          // Single static render — no rAF burn
+          this.draw();
+        }
+      }
+
+      resize() {
+        const rect = this.section.getBoundingClientRect();
+        const w = Math.max(1, Math.round(rect.width));
+        const h = Math.max(1, Math.round(rect.height));
+        this.w = w; this.h = h;
+        this.canvas.width = w * this.dpr;
+        this.canvas.height = h * this.dpr;
+        this.canvas.style.width = w + 'px';
+        this.canvas.style.height = h + 'px';
+        this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+        this.buildGrid(w, h);
+        if (reduceMotion || !isFinePointer) this.draw();
+      }
+
+      buildGrid(w, h) {
+        this.dots.length = 0;
+        const cols = Math.ceil(w / this.gridSize) + 1;
+        const rows = Math.ceil(h / this.gridSize) + 1;
+        const offsetX = (w - (cols - 1) * this.gridSize) / 2;
+        const offsetY = (h - (rows - 1) * this.gridSize) / 2;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            this.dots.push({ x: offsetX + c * this.gridSize, y: offsetY + r * this.gridSize });
+          }
+        }
+      }
+
+      bind() {
+        if (!isFinePointer || reduceMotion) return;
+        this.section.addEventListener('mousemove', (e) => {
+          const rect = this.canvas.getBoundingClientRect();
+          this.targetX = e.clientX - rect.left;
+          this.targetY = e.clientY - rect.top;
+        });
+        this.section.addEventListener('mouseleave', () => {
+          this.targetX = -9999;
+          this.targetY = -9999;
+        });
+      }
+
+      draw() {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, this.w, this.h);
+        const pr2 = this.pullRadius * this.pullRadius;
+        for (const d of this.dots) {
+          const dx = this.mouseX - d.x;
+          const dy = this.mouseY - d.y;
+          const distSq = dx * dx + dy * dy;
+          let r = this.dotRadius;
+          let ox = d.x, oy = d.y;
+          let cr = this.base[0], cg = this.base[1], cb = this.base[2];
+          let alpha = 1;
+          if (distSq < pr2) {
+            const dist = Math.sqrt(distSq);
+            const t = 1 - dist / this.pullRadius;
+            const eased = t * t;
+            const pull = eased * this.maxOffset;
+            if (dist > 0.001) {
+              ox = d.x + (dx / dist) * pull;
+              oy = d.y + (dy / dist) * pull;
+            }
+            r = this.dotRadius + eased * (this.maxScale - 1) * this.dotRadius;
+            cr = this.base[0] + (this.accent[0] - this.base[0]) * eased;
+            cg = this.base[1] + (this.accent[1] - this.base[1]) * eased;
+            cb = this.base[2] + (this.accent[2] - this.base[2]) * eased;
+            alpha = 1;
+          }
+          ctx.beginPath();
+          ctx.arc(ox, oy, r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${cr|0},${cg|0},${cb|0},${alpha})`;
+          ctx.fill();
+        }
+      }
+
+      tick() {
+        // Lerp mouse for smoother trails
+        this.mouseX += (this.targetX - this.mouseX) * 0.18;
+        this.mouseY += (this.targetY - this.mouseY) * 0.18;
+        this.draw();
+        if (this.visible) this.frame = requestAnimationFrame(this.tick);
+        else this.frame = null;
+      }
+
+      start() {
+        if (reduceMotion || !isFinePointer) return;
+        if (this.frame) return;
+        this.visible = true;
+        this.frame = requestAnimationFrame(this.tick);
+      }
+
+      stop() {
+        this.visible = false;
+        if (this.frame) cancelAnimationFrame(this.frame);
+        this.frame = null;
+      }
+    }
+
+    const instances = Array.from(grids).map(host => new DotGrid(host));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const inst = instances.find(i => i.host === entry.target);
+        if (!inst) return;
+        if (entry.isIntersecting) inst.start();
+        else inst.stop();
+      });
+    }, { threshold: 0.01 });
+    instances.forEach(inst => io.observe(inst.host));
+
+    let resizeT;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(() => instances.forEach(inst => inst.resize()), 120);
+    });
   })();
 </script>
 
