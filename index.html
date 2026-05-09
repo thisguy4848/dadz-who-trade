@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="A brotherhood of dads building wealth through the markets — and passing it down. Discipline. Conviction. Strategy. Freedom." />
-<title>DADZ WHO TRADE — Help others win. You win too.</title>
+<meta name="description" content="A small, disciplined trading brotherhood for working dads. Real humans. Real markets. Built on Traders Empire." />
+<title>DadzWhoTrade — A Trading Brotherhood for Fathers</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -352,10 +352,9 @@
     70%  { box-shadow: 0 0 0 14px rgba(15, 111, 62, 0); }
     100% { box-shadow: 0 0 0 0 rgba(15, 111, 62, 0); }
   }
-  .hero-headline {
-    max-width: 920px;
-  }
-  .hero-headline h1 {
+  .hero-headline { max-width: 920px; }
+  .hero-mid { max-width: 920px; display: flex; flex-direction: column; gap: 28px; }
+  .hero-headline-h1, .hero-headline h1 {
     font-family: var(--font-heading);
     font-size: clamp(44px, 7.5vw, 96px);
     font-weight: 700;
@@ -363,10 +362,95 @@
     letter-spacing: 0.005em;
     text-transform: uppercase;
   }
-  .hero-headline h1 em {
+  .hero-headline-h1 em, .hero-headline h1 em {
     font-style: normal;
     font-weight: 700;
     color: var(--color-accent);
+  }
+  .hero-subhead {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.4vw, 19px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(241, 237, 228, 0.85);
+    max-width: 580px;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 26px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: gap var(--dur-fast) ease, background var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: 1px solid var(--color-accent);
+  }
+  .btn-primary:hover { gap: 16px; background: var(--color-bg); color: var(--color-text); border-color: var(--color-bg); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-inverse-text);
+    border: 1px solid rgba(244,244,244,0.45);
+  }
+  .btn-ghost:hover { gap: 16px; border-color: var(--color-inverse-text); background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: clamp(20px, 4vw, 56px);
+    align-items: end;
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hero-stat strong {
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 4.5vw, 54px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: 0.005em;
+    color: var(--color-inverse-text);
+  }
+  .hero-stat strong i {
+    font-style: normal;
+    font-size: 0.55em;
+    font-weight: 600;
+    color: rgba(241, 237, 228, 0.7);
+    margin-left: 4px;
+  }
+  .hero-stat span {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(241, 237, 228, 0.7);
+  }
+  .hero-disclaimer {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(241, 237, 228, 0.45);
+    text-align: right;
+    max-width: 320px;
   }
   .hero-foot {
     display: flex;
@@ -695,11 +779,11 @@
     gap: 40px;
   }
   /* Soft radial fade panel that lifts text off the dot grid without feeling like a card */
-  .about-body, .about-eyebrow {
+  .about-body, .about-side {
     position: relative;
     isolation: isolate;
   }
-  .about-body::before, .about-eyebrow::before {
+  .about-body::before, .about-side::before {
     content: "";
     position: absolute;
     inset: -32px -48px;
@@ -712,11 +796,70 @@
     pointer-events: none;
     filter: blur(8px);
   }
-  .about-eyebrow::before { inset: -16px -32px; }
   @media (min-width: 768px) {
     .about-grid { grid-template-columns: 1fr 2fr; gap: 80px; }
   }
   .about-eyebrow { padding-top: 6px; }
+  .about-side { padding-top: 6px; }
+  .about-h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.0;
+    letter-spacing: 0.005em;
+    margin-top: 16px;
+  }
+  .about-h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .about-lede {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.55;
+    margin-bottom: 32px;
+  }
+  .about-lede em { font-style: normal; color: var(--color-accent); font-weight: 600; }
+  .about-blocks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .about-blocks li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-border);
+    align-items: start;
+  }
+  .about-blocks li:last-child { border-bottom: 1px solid var(--color-border); }
+  .about-blocks .num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    padding-top: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .about-blocks h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 1.5vw, 20px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+  .about-blocks p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-text);
+    margin: 0;
+  }
   .about-body p {
     font-family: var(--font-body);
     font-size: clamp(18px, 2vw, 26px);
@@ -865,6 +1008,14 @@
     text-transform: uppercase;
   }
   .cta h2 em { font-style: normal; font-weight: 700; color: var(--color-accent); }
+  .cta-sub {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.3vw, 18px);
+    color: rgba(244,244,244,0.65);
+    line-height: 1.5;
+    max-width: 480px;
+    margin-top: 18px;
+  }
   .cta-btn {
     display: inline-flex;
     align-items: center;
@@ -1022,11 +1173,12 @@
   .reveal-stagger.is-visible > *:nth-child(10) { transition-delay: 0.5s; }
 
   .page-load .header,
-  .page-load .hero-inner > * { opacity: 0; transform: translateY(20px); }
+  .page-load .hero-inner > *,
+  .page-load .hero-mid { opacity: 0; transform: translateY(20px); }
   .page-loaded .header { animation: fadeUp 0.8s var(--ease-out) 0.1s forwards; }
   .page-loaded .hero-eyebrow { animation: fadeUp 0.8s var(--ease-out) 0.4s forwards; }
-  .page-loaded .hero-headline { animation: fadeUp 0.8s var(--ease-out) 0.55s forwards; }
-  .page-loaded .hero-foot { animation: fadeUp 0.8s var(--ease-out) 0.7s forwards; }
+  .page-loaded .hero-mid { animation: fadeUp 0.8s var(--ease-out) 0.55s forwards; }
+  .page-loaded .hero-foot { animation: fadeUp 0.8s var(--ease-out) 0.85s forwards; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (hover: none) {
@@ -1072,6 +1224,584 @@
   /* The dot grid in the CTA section sits behind the watermark icon */
   .cta .cta-icon-watermark { z-index: 0; }
 
+  /* ============== BROTHERHOOD CODE ============== */
+  .code-section {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding-block: var(--section-py);
+    position: relative;
+    overflow: hidden;
+  }
+  .code-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  @media (min-width: 900px) {
+    .code-inner { grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; }
+  }
+  .code-head .eyebrow { color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+  .code-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .code-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .code-head p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(244,244,244,0.65);
+    max-width: 380px;
+    line-height: 1.55;
+  }
+  .code-list { list-style: none; margin: 0; padding: 0; }
+  .code-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    align-items: start;
+  }
+  .code-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .code-list .num {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    line-height: 1;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .code-list h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(18px, 1.7vw, 22px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .code-list p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(244,244,244,0.7);
+    margin: 0;
+  }
+
+  /* ============== PLAYBOOK ============== */
+  .playbook {
+    padding-block: var(--section-py);
+    position: relative;
+  }
+  .playbook-head {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    margin-bottom: 56px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .playbook-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .playbook-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .playbook-grid {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  @media (min-width: 600px) { .playbook-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .playbook-grid { grid-template-columns: repeat(4, 1fr); } }
+  .playbook-grid article {
+    padding: 32px 24px 28px;
+    border: 1px solid var(--color-border);
+    margin-left: -1px;
+    margin-top: -1px;
+    background: var(--color-bg);
+    transition: background var(--dur-fast) ease;
+    position: relative;
+  }
+  .playbook-grid article:hover { background: #FAFAFA; }
+  .playbook-grid article:hover .playbook-num { color: var(--color-accent); }
+  .playbook-num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+    margin-bottom: 28px;
+    transition: color var(--dur-fast) ease;
+    font-variant-numeric: tabular-nums;
+  }
+  .playbook-grid h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 1.7vw, 24px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .playbook-grid p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* ============== TRADING ARENA ============== */
+  .arena {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding-block: var(--section-py);
+  }
+  .arena-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+  }
+  .arena-head { margin-bottom: 56px; max-width: 720px; }
+  .arena-head .eyebrow { color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+  .arena-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .arena-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .arena-head p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(244,244,244,0.7);
+    max-width: 580px;
+  }
+  .arena-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  @media (min-width: 720px) { .arena-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .arena-grid { grid-template-columns: repeat(5, 1fr); } }
+  .arena-grid article {
+    padding: 28px 22px;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-left: -1px;
+    margin-top: -1px;
+    transition: background var(--dur-fast) ease;
+  }
+  .arena-grid article:hover { background: rgba(255,255,255,0.03); }
+  .arena-num {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+    font-variant-numeric: tabular-nums;
+  }
+  .arena-grid h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .arena-grid p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(244,244,244,0.65);
+    margin: 0;
+  }
+
+  /* ============== FUNDED ACCOUNT PATH ============== */
+  .funded {
+    padding-block: var(--section-py);
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .funded-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .funded-inner { grid-template-columns: 7fr 5fr; gap: 80px; } }
+  .funded-content .eyebrow { color: var(--color-muted); margin-bottom: 18px; }
+  .funded-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .funded-content h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .funded-promise {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.3vw, 19px);
+    line-height: 1.55;
+    color: var(--color-text);
+    margin-bottom: 28px;
+    max-width: 580px;
+  }
+  .funded-disclaimer {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--color-muted);
+    margin-top: 18px;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+  .funded-stat {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .funded-stat-num {
+    font-family: var(--font-heading);
+    font-size: clamp(96px, 14vw, 180px);
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: 0.005em;
+    color: var(--color-accent);
+  }
+  .funded-stat-num i {
+    font-style: normal;
+    color: rgba(244,244,244,0.5);
+    font-size: 0.55em;
+    margin-left: 6px;
+  }
+  .funded-stat-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(244,244,244,0.7);
+    line-height: 1.5;
+  }
+
+  /* ============== GUIDES / TEAM ============== */
+  .guides {
+    padding-block: var(--section-py);
+  }
+  .guides-head {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    margin-bottom: 48px;
+  }
+  .guides-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .guides-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .guides-grid {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 768px) { .guides-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  .guide-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    transition: border-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+  }
+  @media (min-width: 480px) { .guide-card { grid-template-columns: 180px 1fr; } }
+  .guide-card:hover { border-color: var(--color-accent); }
+  .guide-photo {
+    aspect-ratio: 4/5;
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 480px) { .guide-photo { aspect-ratio: auto; height: 100%; min-height: 240px; } }
+  .guide-photo--placeholder span {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+  }
+  .guide-info {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .guide-name {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 1.8vw, 26px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .guide-role {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+  }
+  .guide-bio {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-text);
+    margin: 0 0 10px 0;
+  }
+  .guide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .guide-tags span {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 5px 9px;
+  }
+
+  /* ============== COMMUNITY BENEFITS ============== */
+  .community {
+    padding-block: var(--section-py);
+    background: var(--color-bg);
+  }
+  .community-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  @media (min-width: 900px) { .community-inner { grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; } }
+  .community-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin: 18px 0;
+  }
+  .community-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .community-head p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--color-muted);
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  .community-benefits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .community-benefits li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 500;
+  }
+  .community-benefits li:last-child { border-bottom: 1px solid var(--color-border); }
+  .community-benefits .check {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* ============== FAQ ============== */
+  .faq { padding-block: var(--section-py); border-top: 1px solid var(--color-border); }
+  .faq-head {
+    max-width: var(--container-max);
+    margin: 0 auto 40px;
+    padding-inline: var(--container-px);
+  }
+  .faq-head h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+  .faq-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .faq-list {
+    max-width: 920px;
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+  }
+  .faq-item {
+    border-top: 1px solid var(--color-border);
+    padding: 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--color-border); }
+  .faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    transition: color var(--dur-fast) ease;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--color-accent); }
+  .faq-toggle {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .faq-toggle::before, .faq-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 14px; height: 1.5px;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+    transition: transform var(--dur-fast) ease;
+  }
+  .faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .faq-item[open] .faq-toggle::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .faq-item p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-muted);
+    padding: 0 0 22px 0;
+    margin: 0;
+    max-width: 720px;
+  }
+
+  /* ============== EMAIL CAPTURE ============== */
+  .email-capture {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding-block: clamp(48px, 7vw, 88px);
+  }
+  .email-inner {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .email-inner { grid-template-columns: 1fr auto; gap: 56px; } }
+  .email-text .eyebrow { color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+  .email-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .email-text p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(244,244,244,0.65);
+    line-height: 1.5;
+    max-width: 460px;
+  }
+  .email-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .email-form input {
+    flex: 1 1 240px;
+    min-width: 0;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--color-inverse-text);
+    padding: 14px 18px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+    transition: border-color var(--dur-fast) ease;
+  }
+  .email-form input::placeholder { color: rgba(244,244,244,0.4); }
+  .email-form input:focus { border-color: var(--color-accent); }
+
   /* ============== MOBILE TIGHTENING ============== */
   @media (max-width: 640px) {
     :root {
@@ -1101,14 +1831,18 @@
     .powered-by span { font-size: 10px; }
     .powered-by img { height: 14px; }
 
-    .hero { min-height: 560px; }
-    .hero-inner { padding: 90px var(--container-px) 32px; }
+    .hero { min-height: 600px; }
+    .hero-inner { padding: 90px var(--container-px) 28px; }
     .hero-eyebrow { font-size: 10px; letter-spacing: 0.18em; }
-    .hero-headline h1 { font-size: clamp(38px, 11vw, 56px); line-height: 1.02; }
+    .hero-headline-h1, .hero-headline h1 { font-size: clamp(38px, 11vw, 56px); line-height: 1.02; }
+    .hero-mid { gap: 18px; }
+    .hero-subhead { font-size: 14px; line-height: 1.45; }
+    .hero-ctas { gap: 8px; }
+    .btn { padding: 14px 18px; font-size: 12px; letter-spacing: 0.1em; }
     .hero-foot {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
+      gap: 14px;
       font-size: 10px;
       letter-spacing: 0.14em;
     }
@@ -1116,6 +1850,10 @@
     .hero-foot .pillars span:not(:last-child)::after {
       margin-left: 10px;
     }
+    .hero-stats { gap: 18px; }
+    .hero-stat strong { font-size: 28px; }
+    .hero-stat span { font-size: 9px; letter-spacing: 0.14em; }
+    .hero-disclaimer { font-size: 9px; text-align: left; max-width: none; }
 
     .case-hero { padding: clamp(40px, 10vw, 80px) var(--container-px); }
     .case-slide-content { padding: 20px; }
@@ -1166,8 +1904,39 @@
   }
 
   @media (max-width: 380px) {
-    .hero-headline h1 { font-size: 36px; }
+    .hero-headline h1, .hero-headline-h1 { font-size: 36px; }
     .pillar-card { width: 84vw; }
+  }
+
+  /* New sections — mobile tightening */
+  @media (max-width: 640px) {
+    .code-list li { grid-template-columns: 40px 1fr; gap: 14px; padding: 18px 0; }
+    .code-list .num { font-size: 17px; }
+    .code-list h4 { font-size: 16px; }
+    .code-list p { font-size: 14px; }
+    .code-head h2, .arena-head h2, .playbook-head h2, .guides-head h2, .community-head h2, .faq-head h2, .funded-content h2 {
+      font-size: clamp(34px, 10vw, 50px);
+    }
+    .funded-stat { padding: 40px 24px; }
+    .funded-stat-num { font-size: 90px; }
+    .arena-grid article { padding: 24px 18px; }
+    .playbook-grid article { padding: 24px 20px; }
+    .playbook-num { margin-bottom: 18px; }
+    .community-benefits li { font-size: 14px; padding: 14px 0; gap: 12px; }
+    .community-benefits .check { width: 24px; height: 24px; font-size: 12px; }
+    .faq-item summary { font-size: 14px; padding: 18px 0; }
+    .faq-item p { font-size: 13px; padding-bottom: 18px; }
+    .email-text h2 { font-size: 26px; }
+    .email-form { gap: 6px; }
+    .email-form input { padding: 12px 14px; font-size: 13px; }
+    .guide-info { padding: 22px 18px; }
+    .guide-name { font-size: 22px; }
+    .guide-bio { font-size: 13px; }
+    .about-blocks li { gap: 12px; padding: 16px 0; }
+    .about-blocks h4 { font-size: 15px; }
+    .about-blocks p { font-size: 14px; }
+    .about-h2 { font-size: 32px; margin-top: 12px; }
+    .about-lede { font-size: 16px; margin-bottom: 24px; }
   }
 </style>
 </head>
@@ -1194,12 +1963,12 @@
 
   <div class="nav-right">
     <nav class="nav-links" aria-label="Primary">
-      <a href="#pillars">Pillars</a>
       <a href="#about">About</a>
-      <a href="#dispatches">Dispatches</a>
-      <a href="#community">Community</a>
-      <a href="#join">Join</a>
-      <a href="#contact">Contact</a>
+      <a href="#code">The Code</a>
+      <a href="#method">Method</a>
+      <a href="#guides">Guides</a>
+      <a href="#faq">FAQ</a>
+      <a href="#community">Apply</a>
     </nav>
     <a class="te-login" href="https://tradersempire.com" target="_blank" rel="noopener" aria-label="Login to the Traders Empire platform">
       <img src="assets/te-icon.png" alt="" />
@@ -1222,13 +1991,13 @@
     <button class="overlay-close" id="overlayClose" aria-label="Close menu"></button>
   </div>
   <nav class="overlay-body" aria-label="Overlay">
-    <a href="#pillars">Pillars</a>
     <a href="#about">About</a>
-    <a href="#dispatches">Dispatches</a>
-    <a href="#community">Community</a>
-    <a href="#join">Join</a>
-    <a href="#contact">Contact</a>
-    <a href="#brotherhood">The Brotherhood</a>
+    <a href="#code">The Code</a>
+    <a href="#method">The Playbook</a>
+    <a href="#arena">The Arena</a>
+    <a href="#guides">Your Guides</a>
+    <a href="#faq">FAQ</a>
+    <a href="#community">Apply to Join</a>
   </nav>
   <div class="overlay-foot">
     <div>Discipline · Conviction · Strategy · Freedom</div>
@@ -1248,21 +2017,25 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="pulse"></span>
-      <span>A Brotherhood of Dads · Est. 2026</span>
+      <span>DadzWhoTrade · A Trading Brotherhood</span>
     </div>
 
-    <div class="hero-headline">
-      <h1>Help others win.<br/>You win <em>too</em>.</h1>
+    <div class="hero-mid">
+      <h1 class="hero-headline-h1">Help others win.<br/>You <em>win</em> too.</h1>
+      <p class="hero-subhead">A trading brotherhood for working dads who want to leave more than just bills. Real humans. Real markets. Built on Traders Empire.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener">Apply to Join <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#method">See the Method</a>
+      </div>
     </div>
 
     <div class="hero-foot">
-      <div class="pillars">
-        <span>Discipline</span>
-        <span>Conviction</span>
-        <span>Strategy</span>
-        <span>Freedom</span>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>47</strong><span>Members under guidance</span></div>
+        <div class="hero-stat"><strong>1.6<i>hrs</i></strong><span>Avg. session / day</span></div>
+        <div class="hero-stat"><strong>89<i>%</i></strong><span>Account survival, 6mo</span></div>
       </div>
-      <div>Trade like a man. <em style="color: var(--color-accent); font-style: normal;">Live like a dad.</em></div>
+      <div class="hero-disclaimer">Sourced from Traders Empire. Past performance does not guarantee future results.</div>
     </div>
   </div>
 </section>
@@ -1361,6 +2134,161 @@
   <div class="drag-cursor" id="dragCursor">Drag</div>
 </section>
 
+<!-- BROTHERHOOD CODE -->
+<section class="code-section" id="code">
+  <div class="code-inner">
+    <div class="code-head reveal">
+      <div class="eyebrow">The Brotherhood Code</div>
+      <h2>Seven rules.<br/>Zero <em>exceptions.</em></h2>
+      <p>Break one and you're out. We don't bend the code for anyone — including the guides.</p>
+    </div>
+    <ol class="code-list reveal-stagger">
+      <li><span class="num">01</span><div><h4>Family First, Markets Second</h4><p>The market will be open tomorrow. Your kid's bedtime won't.</p></div></li>
+      <li><span class="num">02</span><div><h4>Position Size Before Setup</h4><p>We risk-size every entry before we look at the chart. No exceptions.</p></div></li>
+      <li><span class="num">03</span><div><h4>The Wife Knows</h4><p>If you can't tell your spouse what you're risking, you're risking too much.</p></div></li>
+      <li><span class="num">04</span><div><h4>No Lambo Talk</h4><p>We don't post P&amp;L. We don't flex. We don't romanticize the win.</p></div></li>
+      <li><span class="num">05</span><div><h4>Show the Losses Too</h4><p>Every loss gets dissected in the room. The system survives by being honest.</p></div></li>
+      <li><span class="num">06</span><div><h4>Boring Survives</h4><p>A boring system run for ten years beats a brilliant one run for ten weeks.</p></div></li>
+      <li><span class="num">07</span><div><h4>Pass It On</h4><p>What you learn here, you teach to one other dad. The brotherhood compounds.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PLAYBOOK -->
+<section class="playbook" id="method">
+  <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
+  <div class="playbook-head reveal">
+    <div class="eyebrow">The Playbook</div>
+    <h2>One playbook.<br/><em>Every</em> asset.</h2>
+  </div>
+  <div class="playbook-grid reveal-stagger">
+    <article><div class="playbook-num">01</div><h4>Crypto</h4><p>Spot + perp. The 24/7 game and how to trade it without burning out.</p></article>
+    <article><div class="playbook-num">02</div><h4>Forex</h4><p>London + NY sessions. The dad-friendly windows.</p></article>
+    <article><div class="playbook-num">03</div><h4>Stocks &amp; Indices</h4><p>Index futures and large-cap equities. Boring on purpose.</p></article>
+    <article><div class="playbook-num">04</div><h4>Commodities</h4><p>Gold, oil, ag. The macro hedges most retail dads ignore.</p></article>
+    <article><div class="playbook-num">05</div><h4>Risk Management</h4><p>Position sizing. Stop placement. Account survival math.</p></article>
+    <article><div class="playbook-num">06</div><h4>Father Discipline</h4><p>Trading after bedtime. Building the focused 90-minute session.</p></article>
+    <article><div class="playbook-num">07</div><h4>Family Money Talks</h4><p>How to talk to your spouse and kids about what you're building.</p></article>
+    <article><div class="playbook-num">08</div><h4>Legacy Compounding</h4><p>The 20-year horizon. Habits before capital.</p></article>
+  </div>
+</section>
+
+<!-- TRADING ARENA -->
+<section class="arena" id="arena">
+  <div class="arena-inner">
+    <div class="arena-head reveal">
+      <div class="eyebrow">The Trading Arena</div>
+      <h2>Where the brotherhood<br/>does the <em>work</em>.</h2>
+      <p>Two daily sessions. One playbook. Real-time trade reviews. Risk-first sizing. Built for the dad who has 90 focused minutes and can't waste them on noise.</p>
+    </div>
+    <div class="arena-grid reveal-stagger">
+      <article><div class="arena-num">01</div><h4>Morning Briefing</h4><p>15-minute pre-market read. Watch on the commute or before the kids wake.</p></article>
+      <article><div class="arena-num">02</div><h4>Live Trade Reviews</h4><p>Both guides post their trades in real time — entries, exits, sizing, why.</p></article>
+      <article><div class="arena-num">03</div><h4>The 90-Minute Session</h4><p>Focused trading window with the room. In and out. Back to your day.</p></article>
+      <article><div class="arena-num">04</div><h4>Risk Audit Fridays</h4><p>Joel reviews every member's sizing weekly. No anonymity. No hiding.</p></article>
+      <article><div class="arena-num">05</div><h4>After-Bedtime Replays</h4><p>Recordings + chart breakdowns posted by 9pm. Train when the house is quiet.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDED ACCOUNT PATH -->
+<section class="funded">
+  <div class="funded-inner">
+    <div class="funded-content reveal">
+      <div class="eyebrow" style="color: rgba(255,255,255,0.5);">Funded Account Path</div>
+      <h2>Trade with <em>funded</em> capital.</h2>
+      <p class="funded-promise">Demonstrate discipline inside the brotherhood and earn access to a Traders Empire funded account. Keep up to 80% of your profits. The brotherhood gets you there — the platform funds you.</p>
+      <a class="btn btn-primary" href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener">Apply to Join <span aria-hidden="true">→</span></a>
+      <p class="funded-disclaimer">Funded account opportunities are platform features subject to performance and discipline criteria. No specific outcome is guaranteed.</p>
+    </div>
+    <div class="funded-stat reveal">
+      <div class="funded-stat-num">80<i>%</i></div>
+      <div class="funded-stat-label">Profit split to you<br/>after qualification</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM / GUIDES -->
+<section class="guides" id="guides">
+  <div class="guides-head reveal">
+    <div class="eyebrow">Your Guides</div>
+    <h2>Two dads.<br/>One <em>standard</em>.</h2>
+  </div>
+  <div class="guides-grid reveal-stagger">
+    <article class="guide-card">
+      <div class="guide-photo guide-photo--placeholder" aria-label="Devin portrait — placeholder"><span>D</span></div>
+      <div class="guide-info">
+        <div class="guide-name">Devin</div>
+        <div class="guide-role">Co-Guide · Marketer &amp; Operator</div>
+        <p class="guide-bio">Marketer, operator, father of three. Runs four ventures by day, builds the brotherhood by night. The systems-and-storytelling half of the room.</p>
+        <div class="guide-tags"><span>Systems &amp; operations</span><span>Brand &amp; marketing</span><span>Brotherhood building</span></div>
+      </div>
+    </article>
+    <article class="guide-card">
+      <div class="guide-photo guide-photo--placeholder" aria-label="Joel portrait — placeholder"><span>J</span></div>
+      <div class="guide-info">
+        <div class="guide-name">Joel</div>
+        <div class="guide-role">Co-Guide · Risk-First Trader</div>
+        <p class="guide-bio">10+ years in institutional risk. Father. The brotherhood's accountability anchor — every member's sizing crosses his desk.</p>
+        <div class="guide-tags"><span>Risk management</span><span>Account survival</span><span>Sizing discipline</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- COMMUNITY / APPLY BENEFITS -->
+<section class="community" id="community">
+  <div class="community-inner">
+    <div class="community-head reveal">
+      <div class="eyebrow">Join the Brotherhood</div>
+      <h2>Apply to the <em>room</em>.</h2>
+      <p>This is a small room by design. We cap at 100 dads. We screen for fit. If you're hunting for hype, this isn't it. If you want a quiet, disciplined room of fathers running the same playbook — apply.</p>
+    </div>
+    <ul class="community-benefits reveal-stagger">
+      <li><span class="check" aria-hidden="true">✓</span><span>Daily morning briefing from both guides</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Live trade reviews with full sizing rationale</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Weekly risk audit on your account</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>After-bedtime replay vault — train on your schedule</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Private brotherhood channel — fathers only, no anon</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Quarterly in-person retreat (optional)</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Funded account path through Traders Empire</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-head reveal">
+    <div class="eyebrow">Frequently Asked</div>
+    <h2>Eight questions.<br/><em>Real</em> answers.</h2>
+  </div>
+  <div class="faq-list reveal-stagger">
+    <details class="faq-item"><summary><span>What platform do I actually trade on?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All trading happens on the Traders Empire platform — 200+ instruments across crypto, forex, stocks, indices, and commodities, with TradingView-powered charts and native iOS + Android apps.</p></details>
+    <details class="faq-item"><summary><span>How do funded accounts work?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>After demonstrating discipline inside the brotherhood, members can earn access to a Traders Empire funded account and keep up to 80% of profits. Subject to performance and discipline criteria.</p></details>
+    <details class="faq-item"><summary><span>What's the cost?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Application is free. Pricing is shared after acceptance — we don't post tiers because this isn't a course, it's a small room.</p></details>
+    <details class="faq-item"><summary><span>Do I need experience?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>You need to have traded with real money for at least six months. We're not a beginner room.</p></details>
+    <details class="faq-item"><summary><span>What markets do you trade?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All five — crypto, forex, stocks, indices, commodities — through one playbook.</p></details>
+    <details class="faq-item"><summary><span>How much time does this take?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>One focused 90-minute session per day plus the morning briefing. Built for working dads.</p></details>
+    <details class="faq-item"><summary><span>What if I'm not in the US?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>The platform is open globally. Some country restrictions apply — check the Traders Empire register page for your jurisdiction.</p></details>
+    <details class="faq-item"><summary><span>Why "dads" specifically?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Because the discipline of fatherhood and the discipline of trading are the same skill, sharpened in different rooms. The brotherhood compounds when the room shares that lens.</p></details>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-capture">
+  <div class="email-inner reveal">
+    <div class="email-text">
+      <div class="eyebrow">The Daily Briefing</div>
+      <h2>The Daily Briefing.</h2>
+      <p>A 5-minute morning read for the dads. No hype. No flexes. Just the setup.</p>
+    </div>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('button').disabled=true;">
+      <input type="email" required placeholder="you@dadzwhotrade.com" aria-label="Email address" />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
 <!-- MARQUEE -->
 <section class="marquee" aria-hidden="true">
   <div class="marquee-track">
@@ -1374,9 +2302,19 @@
 <section class="about" id="about">
   <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="about-grid reveal">
-    <div class="about-eyebrow eyebrow">About Us</div>
+    <div class="about-side">
+      <div class="about-eyebrow eyebrow">Who We Are</div>
+      <h2 class="about-h2">Built by dads.<br/>For dads.<br/>About <em>more than money</em>.</h2>
+    </div>
     <div class="about-body">
-      <p>Dadz Who Trade is a team of dedicated traders who want to see you win. We will help you build your team, create training assets, support your growth, and ultimately help you win on the <span class="te-mention"><img src="assets/te-icon.png" alt="" />TradersEmpire</span> platform. Think of us as your guides to all things <em>T.E.</em></p>
+      <p class="about-lede">Dadz Who Trade is a team of dedicated traders who want to see you win. We will help you build your team, create training assets, support your growth, and ultimately help you win on the <span class="te-mention"><img src="assets/te-icon.png" alt="" />TradersEmpire</span> platform. Think of us as your guides to all things <em>T.E.</em></p>
+      <ol class="about-blocks">
+        <li><span class="num">01</span><h4>The Mindset</h4><p>We trade like the household depends on it — because it does. Position size first. Edge is meaningless if you blow up.</p></li>
+        <li><span class="num">02</span><h4>Not Another Guru Room</h4><p>No flexes. No screenshots of 5-figure days. No countdown timers. Just two dads, the work, and the brotherhood holding each other accountable.</p></li>
+        <li><span class="num">03</span><h4>The Mission</h4><p>Build a small group of disciplined trader-fathers who pass habits — not handouts — to their kids.</p></li>
+        <li><span class="num">04</span><h4>What We Don't Do</h4><p>Get rich quick. Hype. Flex culture. Shortcuts. Fake gurus. Empty promises.</p></li>
+        <li><span class="num">05</span><h4>The Brotherhood</h4><p>Account-level accountability. We watch each other's accounts as if our families depended on it. Because they do.</p></li>
+      </ol>
       <a href="#join" class="about-link">Join the Room <span aria-hidden="true">→</span></a>
     </div>
   </div>
@@ -1437,8 +2375,11 @@
   <div class="dotgrid" data-bg="dark" aria-hidden="true"><canvas></canvas></div>
   <img class="cta-icon-watermark" src="assets/icon.png" alt="" aria-hidden="true" />
   <div class="cta-inner">
-    <h2>Become a <em>dad</em><br/>who trades.</h2>
-    <a href="#" class="cta-btn">Apply to the Room <span aria-hidden="true">→</span></a>
+    <div>
+      <h2>Ready to <em>apply</em>?</h2>
+      <p class="cta-sub">Small room. Quiet brotherhood. Real work. The application takes 8 minutes.</p>
+    </div>
+    <a href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener" class="cta-btn">Apply to Join <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -1459,10 +2400,11 @@
       <div class="footer-col">
         <h4>The Room</h4>
         <ul>
-          <li><a href="#pillars">The Pillars</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#dispatches">Dispatches</a></li>
-          <li><a href="#join">Join</a></li>
+          <li><a href="#code">The Code</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#guides">Guides</a></li>
+          <li><a href="#community">Apply</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1494,7 +2436,7 @@
     </div>
 
     <div class="footer-bottom">
-      <div>©26 DADZ WHO TRADE®</div>
+      <div>© 2026 DadzWhoTrade. All rights reserved.</div>
       <a class="powered-by" href="https://tradersempire.com" target="_blank" rel="noopener" aria-label="Powered by Traders Empire">
         <span>Trading &amp; Training Powered by</span>
         <img src="assets/te-logo-light.png" alt="Traders Empire" />
