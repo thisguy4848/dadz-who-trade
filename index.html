@@ -121,6 +121,11 @@
   }
   .header-logo .wordmark .accent {
     color: var(--color-accent);
+    transition: color var(--dur-fast) ease;
+  }
+  /* Brighter green for legibility when header is transparent over the hero photo */
+  .header:not(.is-scrolled) .header-logo .wordmark .accent {
+    color: #38C07C;
   }
   .header.is-scrolled .header-logo .icon { width: 34px; height: 34px; }
   .header.is-scrolled .header-logo .wordmark { font-size: 19px; }
@@ -152,7 +157,48 @@
   .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
   @media (min-width: 1024px) { .nav-links { display: flex; } }
 
-  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+
+  /* TE LOGIN BUTTON */
+  .te-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px 10px 14px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+  }
+  .te-login img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    transition: transform var(--dur-fast) ease;
+  }
+  .te-login:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+  }
+  .te-login:hover img { transform: scale(1.08); }
+  .header.is-scrolled .te-login {
+    border-color: var(--color-border);
+  }
+  /* When header is over hero (transparent state), the cream BG of the button needs no border ghost */
+  .header:not(.is-scrolled) .te-login {
+    background: rgba(255,255,255,0.92);
+    color: var(--color-text);
+  }
   .menu-toggle {
     width: 44px; height: 44px;
     display: flex; flex-direction: column;
@@ -886,6 +932,35 @@
     letter-spacing: 0.14em;
     color: var(--color-muted);
   }
+  .powered-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-text);
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: transform var(--dur-fast) ease, background var(--dur-fast) ease;
+  }
+  .powered-by span {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    line-height: 1;
+  }
+  .powered-by img {
+    height: 16px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .powered-by:hover {
+    background: #1A2429;
+    transform: translateY(-1px);
+  }
 
   /* REVEAL */
   .reveal {
@@ -978,6 +1053,19 @@
     .menu-toggle { width: 40px; height: 40px; margin-right: -8px; }
     .menu-toggle span { width: 22px; }
     .menu-toggle span:last-child { width: 14px; }
+    .nav-right { gap: 10px; }
+    .te-login {
+      padding: 0;
+      width: 36px;
+      height: 36px;
+      justify-content: center;
+      gap: 0;
+    }
+    .te-login span { display: none; }
+    .te-login img { width: 18px; height: 18px; }
+    .powered-by { padding: 8px 14px; gap: 10px; }
+    .powered-by span { font-size: 10px; }
+    .powered-by img { height: 14px; }
 
     .hero { min-height: 560px; }
     .hero-inner { padding: 90px var(--container-px) 32px; }
@@ -1079,6 +1167,10 @@
       <a href="#join">Join</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="te-login" href="https://tradersempire.com" target="_blank" rel="noopener" aria-label="Login to the Traders Empire platform">
+      <img src="assets/te-icon.png" alt="" />
+      <span>Login</span>
+    </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
@@ -1369,7 +1461,10 @@
 
     <div class="footer-bottom">
       <div>©26 DADZ WHO TRADE®</div>
-      <div>A brotherhood of fathers · The room is small on purpose</div>
+      <a class="powered-by" href="https://tradersempire.com" target="_blank" rel="noopener" aria-label="Powered by Traders Empire">
+        <span>Trading &amp; Training Powered by</span>
+        <img src="assets/te-logo-light.png" alt="Traders Empire" />
+      </a>
     </div>
   </div>
 </footer>
