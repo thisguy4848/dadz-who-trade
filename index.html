@@ -694,6 +694,25 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  /* Soft radial fade panel that lifts text off the dot grid without feeling like a card */
+  .about-body, .about-eyebrow {
+    position: relative;
+    isolation: isolate;
+  }
+  .about-body::before, .about-eyebrow::before {
+    content: "";
+    position: absolute;
+    inset: -32px -48px;
+    background: radial-gradient(ellipse at center,
+      rgba(255,255,255,0.96) 0%,
+      rgba(255,255,255,0.92) 45%,
+      rgba(255,255,255,0.5) 80%,
+      rgba(255,255,255,0) 100%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(8px);
+  }
+  .about-eyebrow::before { inset: -16px -32px; }
   @media (min-width: 768px) {
     .about-grid { grid-template-columns: 1fr 2fr; gap: 80px; }
   }
