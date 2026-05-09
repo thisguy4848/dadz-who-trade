@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="A small, disciplined trading brotherhood for working dads. Real humans. Real markets. Built on Traders Empire." />
-<title>DadzWhoTrade — A Trading Brotherhood for Fathers</title>
+<meta name="description" content="A small, disciplined trading team for working dads — and the families they're building it for. Real humans. Real markets. Built on Traders Empire." />
+<title>DadzWhoTrade — A Trading Team for Fathers &amp; Families</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1234,7 +1234,7 @@
   /* The dot grid in the CTA section sits behind the watermark icon */
   .cta .cta-icon-watermark { z-index: 0; }
 
-  /* ============== BROTHERHOOD CODE ============== */
+  /* ============== HOUSE RULES ============== */
   .code-section {
     background: var(--color-inverse-bg);
     color: var(--color-inverse-text);
@@ -1556,6 +1556,103 @@
     text-transform: uppercase;
   }
   .guides-head h2 em { font-style: normal; color: var(--color-accent); font-weight: 700; }
+  .org-card {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: clamp(40px, 5vw, 64px);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 900px) { .org-card { grid-template-columns: 280px 1fr; gap: 64px; padding: clamp(40px, 5vw, 80px); } }
+  .org-card { margin-inline: clamp(24px, 4vw, 60px); }
+  @media (min-width: calc(1280px + 8vw)) { .org-card { margin-inline: auto; } }
+  .org-icon {
+    aspect-ratio: 1/1;
+    background: var(--color-inverse-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18%;
+    position: relative;
+    overflow: hidden;
+  }
+  .org-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(20,90,61,0.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .org-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 24px rgba(20,90,61,0.5));
+  }
+  .org-lede {
+    font-family: var(--font-body);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--color-text);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+  .org-lede strong {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .org-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  @media (min-width: 720px) { .org-list { grid-template-columns: 1fr 1fr; gap: 0 32px; } }
+  .org-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 18px 0;
+    border-top: 1px solid var(--color-border);
+    align-items: start;
+  }
+  .org-list li:nth-last-child(-n+2) { border-bottom: 1px solid var(--color-border); }
+  @media (max-width: 719px) { .org-list li:nth-last-child(-n+2) { border-bottom: 0; } .org-list li:last-child { border-bottom: 1px solid var(--color-border); } }
+  .org-num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .org-list h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(16px, 1.4vw, 19px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .org-list p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
   .guides-grid {
     max-width: var(--container-max);
     margin-inline: auto;
@@ -1984,7 +2081,7 @@
   <div class="nav-right">
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#code">The Code</a>
+      <a href="#code">House Rules</a>
       <a href="#method">Method</a>
       <a href="#guides">Guides</a>
       <a href="#faq">FAQ</a>
@@ -2037,12 +2134,12 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="pulse"></span>
-      <span>DadzWhoTrade · A Trading Brotherhood</span>
+      <span>DadzWhoTrade · A Trading Team</span>
     </div>
 
     <div class="hero-mid">
       <h1 class="hero-headline-h1">Help others win.<br/>You <em>win</em> too.</h1>
-      <p class="hero-subhead">A trading brotherhood for working dads who want to leave more than just bills. Real humans. Real markets. Built on Traders Empire.</p>
+      <p class="hero-subhead">A trading team for working dads — and the families they're building it for. Real humans. Real markets. Built on Traders Empire.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener">Apply to Join <span aria-hidden="true">→</span></a>
         <a class="btn btn-ghost" href="#method">See the Method</a>
@@ -2075,7 +2172,7 @@
       <article class="case-slide" data-i="1">
         <img src="assets/hero-boardroom.jpg" alt="A small group of men around a table at sunset reviewing trading charts" loading="lazy" />
         <div class="case-slide-content">
-          <div class="case-slide-eyebrow">Pillar 02 — Brotherhood</div>
+          <div class="case-slide-eyebrow">Pillar 02 — The Team</div>
           <h3 class="case-slide-title">A small room.<br/>Real men.</h3>
           <p class="case-slide-desc">No gurus. No noise. Just a tight circle of fathers building wealth in the markets — sharing the playbook in real time so nobody trades alone.</p>
         </div>
@@ -2154,12 +2251,12 @@
   <div class="drag-cursor" id="dragCursor">Drag</div>
 </section>
 
-<!-- BROTHERHOOD CODE -->
+<!-- HOUSE RULES -->
 <section class="code-section" id="code">
   <div class="dotgrid" data-bg="dark" aria-hidden="true"><canvas></canvas></div>
   <div class="code-inner">
     <div class="code-head reveal">
-      <div class="eyebrow">The Brotherhood Code</div>
+      <div class="eyebrow">House Rules</div>
       <h2>Seven rules.<br/>Zero <em>exceptions.</em></h2>
       <p>Break one and you're out. We don't bend the code for anyone — including the guides.</p>
     </div>
@@ -2170,7 +2267,7 @@
       <li><span class="num">04</span><div><h4>No Lambo Talk</h4><p>We don't post P&amp;L. We don't flex. We don't romanticize the win.</p></div></li>
       <li><span class="num">05</span><div><h4>Show the Losses Too</h4><p>Every loss gets dissected in the room. The system survives by being honest.</p></div></li>
       <li><span class="num">06</span><div><h4>Boring Survives</h4><p>A boring system run for ten years beats a brilliant one run for ten weeks.</p></div></li>
-      <li><span class="num">07</span><div><h4>Pass It On</h4><p>What you learn here, you teach to one other dad. The brotherhood compounds.</p></div></li>
+      <li><span class="num">07</span><div><h4>Pass It On</h4><p>What you learn here, you teach to one other person on your team. The team compounds.</p></div></li>
     </ol>
   </div>
 </section>
@@ -2200,7 +2297,7 @@
   <div class="arena-inner">
     <div class="arena-head reveal">
       <div class="eyebrow">The Trading Arena</div>
-      <h2>Where the brotherhood<br/>does the <em>work</em>.</h2>
+      <h2>Where the team<br/>does the <em>work</em>.</h2>
       <p>Two daily sessions. One playbook. Real-time trade reviews. Risk-first sizing. Built for the dad who has 90 focused minutes and can't waste them on noise.</p>
     </div>
     <div class="arena-grid reveal-stagger">
@@ -2220,7 +2317,7 @@
     <div class="funded-content reveal">
       <div class="eyebrow" style="color: rgba(255,255,255,0.5);">Funded Account Path</div>
       <h2>Trade with <em>funded</em> capital.</h2>
-      <p class="funded-promise">Demonstrate discipline inside the brotherhood and earn access to a Traders Empire funded account. The brotherhood gets you there — the platform funds you. Specific terms are set by Traders Empire and shared with qualified members.</p>
+      <p class="funded-promise">Demonstrate discipline inside the team and earn access to a Traders Empire funded account. The team gets you there — the platform funds you. Specific terms are set by Traders Empire and shared with qualified members.</p>
       <a class="btn btn-primary" href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener">Apply to Join <span aria-hidden="true">→</span></a>
       <p class="funded-disclaimer">Funded account access is a platform feature subject to qualification and platform criteria. Nothing on this page is financial advice or a guarantee of any specific outcome. Trading involves risk.</p>
     </div>
@@ -2228,38 +2325,32 @@
       <div class="funded-stat-pillars">
         <div><span class="funded-stat-label">Capital</span><span class="funded-stat-from">from the platform</span></div>
         <div class="funded-divider" aria-hidden="true"></div>
-        <div><span class="funded-stat-label">Discipline</span><span class="funded-stat-from">from the brotherhood</span></div>
+        <div><span class="funded-stat-label">Discipline</span><span class="funded-stat-from">from the team</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEAM / GUIDES -->
+<!-- ORGANIZATION / GUIDES -->
 <section class="guides" id="guides">
   <div class="dotgrid" data-bg="light" aria-hidden="true"><canvas></canvas></div>
   <div class="guides-head reveal">
     <div class="eyebrow">Your Guides</div>
-    <h2>Two dads.<br/>One <em>standard</em>.</h2>
+    <h2>Built to guide you<br/>to the <em>win</em>.</h2>
   </div>
-  <div class="guides-grid reveal-stagger">
-    <article class="guide-card">
-      <div class="guide-photo guide-photo--placeholder" aria-label="Devin portrait — placeholder"><span>D</span></div>
-      <div class="guide-info">
-        <div class="guide-name">Devin</div>
-        <div class="guide-role">Co-Guide · Marketer &amp; Operator</div>
-        <p class="guide-bio">Marketer, operator, father of three. Runs four ventures by day, builds the brotherhood by night. The systems-and-storytelling half of the room.</p>
-        <div class="guide-tags"><span>Systems &amp; operations</span><span>Brand &amp; marketing</span><span>Brotherhood building</span></div>
-      </div>
-    </article>
-    <article class="guide-card">
-      <div class="guide-photo guide-photo--placeholder" aria-label="Joel portrait — placeholder"><span>J</span></div>
-      <div class="guide-info">
-        <div class="guide-name">Joel</div>
-        <div class="guide-role">Co-Guide · Risk-First Trader</div>
-        <p class="guide-bio">10+ years in institutional risk. Father. The brotherhood's accountability anchor — every member's sizing crosses his desk.</p>
-        <div class="guide-tags"><span>Risk management</span><span>Account survival</span><span>Sizing discipline</span></div>
-      </div>
-    </article>
+  <div class="org-card reveal">
+    <div class="org-icon" aria-hidden="true">
+      <img src="assets/icon.png" alt="" />
+    </div>
+    <div class="org-body">
+      <p class="org-lede">Our organization exists for one reason: <strong>to guide you to a win.</strong></p>
+      <ul class="org-list">
+        <li><span class="org-num">01</span><div><h4>Team Building</h4><p>We help you build the team around you — partners, accountability, and the right people in the room.</p></div></li>
+        <li><span class="org-num">02</span><div><h4>Educating Your Audience</h4><p>We help you turn what you know into training assets — content, sessions, and material your audience can actually use.</p></div></li>
+        <li><span class="org-num">03</span><div><h4>Successful Trading</h4><p>We help you trade with discipline, on a platform built for the long game — Traders Empire.</p></div></li>
+        <li><span class="org-num">04</span><div><h4>Winning</h4><p>More than anything, we want you to win. So you can help others win too.</p></div></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -2267,7 +2358,7 @@
 <section class="community" id="community">
   <div class="community-inner">
     <div class="community-head reveal">
-      <div class="eyebrow">Join the Brotherhood</div>
+      <div class="eyebrow">Join the Team</div>
       <h2>Apply to the <em>room</em>.</h2>
       <p>This is a small room by design. We cap at 100 dads. We screen for fit. If you're hunting for hype, this isn't it. If you want a quiet, disciplined room of fathers running the same playbook — apply.</p>
     </div>
@@ -2276,7 +2367,7 @@
       <li><span class="check" aria-hidden="true">✓</span><span>Live trade reviews with full sizing rationale</span></li>
       <li><span class="check" aria-hidden="true">✓</span><span>Weekly risk audit on your account</span></li>
       <li><span class="check" aria-hidden="true">✓</span><span>After-bedtime replay vault — train on your schedule</span></li>
-      <li><span class="check" aria-hidden="true">✓</span><span>Private brotherhood channel — fathers only, no anon</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Private team channel — real names, real accountability</span></li>
       <li><span class="check" aria-hidden="true">✓</span><span>Quarterly in-person retreat (optional)</span></li>
       <li><span class="check" aria-hidden="true">✓</span><span>Funded account path through Traders Empire</span></li>
     </ul>
@@ -2291,13 +2382,13 @@
   </div>
   <div class="faq-list reveal-stagger">
     <details class="faq-item"><summary><span>What platform do I actually trade on?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All trading happens on the Traders Empire platform — 200+ instruments across crypto, forex, stocks, indices, and commodities, with TradingView-powered charts and native iOS + Android apps.</p></details>
-    <details class="faq-item"><summary><span>How do funded accounts work?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>After demonstrating discipline inside the brotherhood, members can earn access to a Traders Empire funded account. Specific terms (profit split, qualification, drawdown rules) are set by Traders Empire and shared with qualified members. Subject to platform criteria. No outcome is guaranteed.</p></details>
+    <details class="faq-item"><summary><span>How do funded accounts work?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>After demonstrating discipline inside the team, members can earn access to a Traders Empire funded account. Specific terms (profit split, qualification, drawdown rules) are set by Traders Empire and shared with qualified members. Subject to platform criteria. No outcome is guaranteed.</p></details>
     <details class="faq-item"><summary><span>What's the cost?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Application is free. Pricing is shared after acceptance — we don't post tiers because this isn't a course, it's a small room.</p></details>
     <details class="faq-item"><summary><span>Do I need experience?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>You need to have traded with real money for at least six months. We're not a beginner room.</p></details>
     <details class="faq-item"><summary><span>What markets do you trade?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All five — crypto, forex, stocks, indices, commodities — through one playbook.</p></details>
     <details class="faq-item"><summary><span>How much time does this take?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>One focused 90-minute session per day plus the morning briefing. Built for working dads.</p></details>
     <details class="faq-item"><summary><span>What if I'm not in the US?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>The platform is open globally. Some country restrictions apply — check the Traders Empire register page for your jurisdiction.</p></details>
-    <details class="faq-item"><summary><span>Why "dads" specifically?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Because the discipline of fatherhood and the discipline of trading are the same skill, sharpened in different rooms. The brotherhood compounds when the room shares that lens.</p></details>
+    <details class="faq-item"><summary><span>Why "dads" specifically?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Because the discipline of fatherhood and the discipline of trading are the same skill, sharpened in different rooms. The team compounds when everyone shares that lens — partners, families, and other teams welcome.</p></details>
   </div>
 </section>
 
@@ -2337,10 +2428,10 @@
       <p class="about-lede">Dadz Who Trade is a team of dedicated traders who want to see you win. We will help you build your team, create training assets, support your growth, and ultimately help you win on the <span class="te-mention"><img src="assets/te-icon.png" alt="" />TradersEmpire</span> platform. Think of us as your guides to all things <em>T.E.</em></p>
       <ol class="about-blocks">
         <li><span class="num">01</span><h4>The Mindset</h4><p>We trade like the household depends on it — because it does. Position size first. Edge is meaningless if you blow up.</p></li>
-        <li><span class="num">02</span><h4>Not Another Guru Room</h4><p>No flexes. No screenshots of 5-figure days. No countdown timers. Just two dads, the work, and the brotherhood holding each other accountable.</p></li>
+        <li><span class="num">02</span><h4>Not Another Guru Room</h4><p>No flexes. No screenshots of 5-figure days. No countdown timers. Just the work, and the team holding each other accountable.</p></li>
         <li><span class="num">03</span><h4>The Mission</h4><p>Build a small group of disciplined trader-fathers who pass habits — not handouts — to their kids.</p></li>
         <li><span class="num">04</span><h4>What We Don't Do</h4><p>Get rich quick. Hype. Flex culture. Shortcuts. Fake gurus. Empty promises.</p></li>
-        <li><span class="num">05</span><h4>The Brotherhood</h4><p>Account-level accountability. We watch each other's accounts as if our families depended on it. Because they do.</p></li>
+        <li><span class="num">05</span><h4>The Standard</h4><p>Account-level accountability. We watch each other's accounts as if our families depended on it. Because they do.</p></li>
       </ol>
       <a href="#join" class="about-link">Join the Room <span aria-hidden="true">→</span></a>
     </div>
@@ -2372,7 +2463,7 @@
     </a>
     <a class="news-item" href="#">
       <div class="news-title">Inside the Room: How a Dozen Dads Held Each Other Through Tariff Week</div>
-      <div class="news-meta"><span class="tag">Brotherhood</span><time>4.07.26</time></div>
+      <div class="news-meta"><span class="tag">Team</span><time>4.07.26</time></div>
     </a>
     <a class="news-item" href="#">
       <div class="news-title">The Journal Page That Saved Me $14k in March</div>
@@ -2388,7 +2479,7 @@
     </a>
     <a class="news-item" href="#">
       <div class="news-title">Why We Tear Each Other's Thesis Apart on Purpose</div>
-      <div class="news-meta"><span class="tag">Brotherhood</span><time>3.10.26</time></div>
+      <div class="news-meta"><span class="tag">Team</span><time>3.10.26</time></div>
     </a>
     <a class="news-item" href="#">
       <div class="news-title">The Compass Test: A 90-Second Pre-Trade Check Every Dad Should Run</div>
@@ -2404,7 +2495,7 @@
   <div class="cta-inner">
     <div>
       <h2>Ready to <em>apply</em>?</h2>
-      <p class="cta-sub">Small room. Quiet brotherhood. Real work. The application takes 8 minutes.</p>
+      <p class="cta-sub">Small room. Quiet team. Real work. The application takes 8 minutes.</p>
     </div>
     <a href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener" class="cta-btn">Apply to Join <span aria-hidden="true">→</span></a>
   </div>
@@ -2428,7 +2519,7 @@
         <h4>The Room</h4>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#code">The Code</a></li>
+          <li><a href="#code">House Rules</a></li>
           <li><a href="#method">Method</a></li>
           <li><a href="#guides">Guides</a></li>
           <li><a href="#community">Apply</a></li>
