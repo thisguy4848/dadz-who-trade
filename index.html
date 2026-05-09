@@ -1493,28 +1493,38 @@
     align-items: flex-start;
     gap: 18px;
   }
-  .funded-stat-num {
-    font-family: var(--font-heading);
-    font-size: clamp(96px, 14vw, 180px);
-    font-weight: 700;
-    line-height: 0.85;
-    letter-spacing: 0.005em;
-    color: var(--color-accent);
+  .funded-stat-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
   }
-  .funded-stat-num i {
-    font-style: normal;
-    color: rgba(244,244,244,0.5);
-    font-size: 0.55em;
-    margin-left: 6px;
+  .funded-stat-pillars > div:not(.funded-divider) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .funded-divider {
+    height: 1px;
+    background: rgba(244,244,244,0.18);
+    width: 60%;
   }
   .funded-stat-label {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .funded-stat-from {
     font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(244,244,244,0.7);
-    line-height: 1.5;
+    color: rgba(244,244,244,0.65);
   }
 
   /* ============== GUIDES / TEAM ============== */
@@ -2031,11 +2041,11 @@
 
     <div class="hero-foot">
       <div class="hero-stats">
-        <div class="hero-stat"><strong>47</strong><span>Members under guidance</span></div>
-        <div class="hero-stat"><strong>1.6<i>hrs</i></strong><span>Avg. session / day</span></div>
-        <div class="hero-stat"><strong>89<i>%</i></strong><span>Account survival, 6mo</span></div>
+        <div class="hero-stat"><strong>100</strong><span>Member cap, small by design</span></div>
+        <div class="hero-stat"><strong>2<i>x</i></strong><span>Daily live sessions</span></div>
+        <div class="hero-stat"><strong>5</strong><span>Markets, one playbook</span></div>
       </div>
-      <div class="hero-disclaimer">Sourced from Traders Empire. Past performance does not guarantee future results.</div>
+      <div class="hero-disclaimer">Trading involves risk. Nothing here is financial advice or a guarantee of any specific outcome.</div>
     </div>
   </div>
 </section>
@@ -2197,13 +2207,16 @@
     <div class="funded-content reveal">
       <div class="eyebrow" style="color: rgba(255,255,255,0.5);">Funded Account Path</div>
       <h2>Trade with <em>funded</em> capital.</h2>
-      <p class="funded-promise">Demonstrate discipline inside the brotherhood and earn access to a Traders Empire funded account. Keep up to 80% of your profits. The brotherhood gets you there — the platform funds you.</p>
+      <p class="funded-promise">Demonstrate discipline inside the brotherhood and earn access to a Traders Empire funded account. The brotherhood gets you there — the platform funds you. Specific terms are set by Traders Empire and shared with qualified members.</p>
       <a class="btn btn-primary" href="https://ops.tradersempire.com/register/dadzwhoTrade" target="_blank" rel="noopener">Apply to Join <span aria-hidden="true">→</span></a>
-      <p class="funded-disclaimer">Funded account opportunities are platform features subject to performance and discipline criteria. No specific outcome is guaranteed.</p>
+      <p class="funded-disclaimer">Funded account access is a platform feature subject to qualification and platform criteria. Nothing on this page is financial advice or a guarantee of any specific outcome. Trading involves risk.</p>
     </div>
     <div class="funded-stat reveal">
-      <div class="funded-stat-num">80<i>%</i></div>
-      <div class="funded-stat-label">Profit split to you<br/>after qualification</div>
+      <div class="funded-stat-pillars">
+        <div><span class="funded-stat-label">Capital</span><span class="funded-stat-from">from the platform</span></div>
+        <div class="funded-divider" aria-hidden="true"></div>
+        <div><span class="funded-stat-label">Discipline</span><span class="funded-stat-from">from the brotherhood</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -2264,7 +2277,7 @@
   </div>
   <div class="faq-list reveal-stagger">
     <details class="faq-item"><summary><span>What platform do I actually trade on?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All trading happens on the Traders Empire platform — 200+ instruments across crypto, forex, stocks, indices, and commodities, with TradingView-powered charts and native iOS + Android apps.</p></details>
-    <details class="faq-item"><summary><span>How do funded accounts work?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>After demonstrating discipline inside the brotherhood, members can earn access to a Traders Empire funded account and keep up to 80% of profits. Subject to performance and discipline criteria.</p></details>
+    <details class="faq-item"><summary><span>How do funded accounts work?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>After demonstrating discipline inside the brotherhood, members can earn access to a Traders Empire funded account. Specific terms (profit split, qualification, drawdown rules) are set by Traders Empire and shared with qualified members. Subject to platform criteria. No outcome is guaranteed.</p></details>
     <details class="faq-item"><summary><span>What's the cost?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>Application is free. Pricing is shared after acceptance — we don't post tiers because this isn't a course, it's a small room.</p></details>
     <details class="faq-item"><summary><span>Do I need experience?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>You need to have traded with real money for at least six months. We're not a beginner room.</p></details>
     <details class="faq-item"><summary><span>What markets do you trade?</span><i class="faq-toggle" aria-hidden="true"></i></summary><p>All five — crypto, forex, stocks, indices, commodities — through one playbook.</p></details>
