@@ -925,6 +925,91 @@
     .carousel-container { cursor: grab; }
   }
   body.menu-open { overflow: hidden; }
+
+  /* ============== MOBILE TIGHTENING ============== */
+  @media (max-width: 640px) {
+    :root {
+      --container-px: 20px;
+      --section-py: clamp(56px, 14vw, 90px);
+    }
+    .header { padding: 14px var(--container-px); }
+    .header-logo { gap: 10px; }
+    .header-logo .icon { width: 32px; height: 32px; }
+    .header-logo .wordmark { font-size: 17px; }
+    .header.is-scrolled .header-logo .icon { width: 28px; height: 28px; }
+    .header.is-scrolled .header-logo .wordmark { font-size: 15px; }
+    .menu-toggle { width: 40px; height: 40px; margin-right: -8px; }
+    .menu-toggle span { width: 22px; }
+    .menu-toggle span:last-child { width: 14px; }
+
+    .hero { min-height: 560px; }
+    .hero-inner { padding: 90px var(--container-px) 32px; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 0.18em; }
+    .hero-headline h1 { font-size: clamp(38px, 11vw, 56px); line-height: 1.02; }
+    .hero-foot {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+    }
+    .hero-foot .pillars { gap: 10px; }
+    .hero-foot .pillars span:not(:last-child)::after {
+      margin-left: 10px;
+    }
+
+    .case-hero { padding: clamp(40px, 10vw, 80px) var(--container-px); }
+    .case-slide-content { padding: 20px; }
+    .case-slide-eyebrow { font-size: 10px; margin-bottom: 10px; }
+    .case-slide-eyebrow::before { width: 16px; }
+    .case-slide-title { font-size: clamp(28px, 8vw, 40px); margin-bottom: 12px; }
+    .case-slide-desc { font-size: 14px; }
+    .case-counter { bottom: 20px; right: 20px; font-size: 11px; }
+
+    .pillars-head h2 { font-size: clamp(34px, 10vw, 48px); line-height: 1.05; }
+    .pillars-head p { max-width: none; }
+
+    .pillar-card { width: 78vw; }
+    .pillar-overlay-title { font-size: clamp(24px, 7vw, 32px); bottom: 16px; left: 16px; right: 16px; }
+    .pillar-num { top: 14px; left: 14px; font-size: 10px; }
+
+    .marquee { padding-block: 16px; }
+    .marquee-track { font-size: 22px; gap: 36px; }
+    .marquee-track span { gap: 36px; }
+
+    .about-grid { gap: 24px; }
+    .about-body p { font-size: 19px; line-height: 1.45; margin-bottom: 24px; }
+
+    .news-head { margin-bottom: 32px; }
+    .news-head h2 { font-size: clamp(34px, 10vw, 48px); }
+    .news-item { padding: 18px 0; gap: 12px; }
+    .news-item:hover { padding-left: 0; }
+    .news-title { font-size: 16px; padding-right: 12px; line-height: 1.25; }
+    .news-meta { gap: 8px; font-size: 10px; }
+    .news-meta .tag { padding: 3px 8px; }
+
+    .cta { padding: 64px var(--container-px); }
+    .cta h2 { font-size: clamp(36px, 11vw, 56px); line-height: 1.05; }
+    .cta-btn { padding: 16px 22px; font-size: 13px; letter-spacing: 0.12em; justify-self: start; }
+    .cta-icon-watermark { width: 70vw; right: -8vw; bottom: -12vw; opacity: 0.05; }
+
+    .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+    .footer-col h4 { margin-bottom: 10px; }
+    .footer-logo-wrap img.icon { width: 52px; height: 52px; }
+    .footer-logo-wrap .wordmark { font-size: 28px; }
+    .footer-tagline { font-size: 11px; letter-spacing: 0.16em; }
+    .footer-bottom { font-size: 10px; }
+
+    .overlay-head { padding: 14px var(--container-px); }
+    .overlay-body { padding: 40px var(--container-px) 32px; }
+    .overlay-body a { font-size: clamp(36px, 10vw, 56px); }
+    .overlay-foot { padding: 20px var(--container-px); flex-direction: column; gap: 12px; font-size: 10px; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-headline h1 { font-size: 36px; }
+    .pillar-card { width: 84vw; }
+  }
 </style>
 </head>
 <body class="page-load">
